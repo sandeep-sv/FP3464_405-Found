@@ -74,3 +74,4 @@ class CrewMember extends Employee {
         return hourlyPay * hoursWorked;
     }
 }
+
