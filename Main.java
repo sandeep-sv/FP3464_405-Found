@@ -49,7 +49,88 @@ public class Main {
 
             switch (option) {
                     case 1: // Add to Order & Checkout
-    
+                        ArrayList<OrderItem> presentOrder = new ArrayList<>();
+                        while (true) {
+                            System.out.println("Menu:");
+                            for (int i = 0; i < menu.size(); i++) {
+                                MenuItem item = menu.get(i);
+                                System.out.println(i + 1 + ". " + item.getItemName() + " - $" + item.getPrice());
+                            }
+                            int itemChoice;
+                            do {
+                                try {
+                                    System.out.print("Enter the item number to add to the order (0 to finish, -1 to cancel, -2 to remove): ");
+                                    itemChoice = scanner.nextInt();
+                                    break;
+                                } catch (Exception e) {
+                                    System.out.println("Invalid input. Please enter an integer.");
+                                    scanner.nextLine();
+                                }
+                            } while (true);
+
+                            if (itemChoice == 0) {
+                                // Finish and checkout
+                                if (!presentOrder.isEmpty()) {
+                                    double total = 0.0;
+
+                                    for (OrderItem orderItem : presentOrder) {
+                                        total += orderItem.getItemTotal();
+                                    }
+
+                                    System.out.println(" Your order");
+                                    System.out.println("**************");
+                                    for (OrderItem item : presentOrder) {
+                                        System.out.println(item.getQuantity() + " " + item.getMenuItem().getItemName() + " - $" + item.getItemTotal());
+                                    }
+                                    System.out.println("**************");
+                                    System.out.println("Total: $" + total);
+                                    System.out.print("Customer amount: $");
+                                    double customerAmount = scanner.nextDouble();
+                                    double change = customerAmount - total;
+                                    System.out.println("Change: $" + change);
+                                    Receipt receipt = new Receipt(new ArrayList<>(presentOrder), total, customerAmount, change);
+                                    orderHistory.add(receipt);
+                                    System.out.println("Thank you for your order!");
+                                    presentOrder.clear();
+                                } else {
+                                    System.out.println("Your order is empty.");
+                                }
+                                break;
+                            } else if (itemChoice == -1) {
+                                presentOrder.clear();
+                                System.out.println("Current order canceled.");
+                                break;
+                            } else if (itemChoice == -2) {
+                                if (!presentOrder.isEmpty()) {
+                                    System.out.println("Current Order:");
+                                    for (int i = 0; i < presentOrder.size(); i++) {
+                                        OrderItem orderItem = presentOrder.get(i);
+                                        System.out.println((i + 1) + ". " + orderItem.getQuantity() + " " + orderItem.getMenuItem().getItemName());
+                                    }
+                                    System.out.print("Enter the item number to remove (0 to cancel): ");
+                                    int removeChoice = scanner.nextInt();
+                                    if (removeChoice == 0) {
+                                        System.out.println("Removal canceled.");
+                                    } else if (removeChoice > 0 && removeChoice <= presentOrder.size()) {
+                                        presentOrder.remove(removeChoice - 1);
+                                        System.out.println("Item removed from the order.");
+                                    } else {
+                                        System.out.println("Invalid item number.");
+                                    }
+                                } else {
+                                    System.out.println("Your order is empty.");
+                                }
+                            } else if (itemChoice > 0 && itemChoice <= menu.size()) {
+                                MenuItem selectedMenuItem = menu.get(itemChoice - 1);
+                                System.out.print("Enter the quantity: ");
+                                int quantity = scanner.nextInt();
+                                OrderItem orderItem = new OrderItem(selectedMenuItem, quantity);
+                                presentOrder.add(orderItem);
+                                System.out.println(orderItem.getQuantity() + " " + orderItem.getMenuItem().getItemName() + " added to the order.");
+                            } else {
+                                System.out.println("Invalid item number.");
+                            }
+                        }
                         break;
                     case 2: // Order History
                         
