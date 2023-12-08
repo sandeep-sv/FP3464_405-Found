@@ -143,8 +143,74 @@ public class Main {
                         
                         break;
                     case 5: // Employee Management
-                        
-                        break;
+                    int choice;
+                    do {
+                        System.out.println("Employee Management Menu:");
+                        System.out.println("1. Add Manager");
+                        System.out.println("2. Add Crew Member");
+                        System.out.println("3. View Employees");
+                        System.out.println("4. View Salary by Employee ID");
+                        System.out.println("5. Back to Main Menu");
+                        do {
+                            try {
+                                System.out.print("Enter your choice: ");
+                                choice = scanner.nextInt();
+                                break;
+                            } catch (Exception e) {
+                                System.out.println("Invalid input. Please Enter An Integer");
+                                scanner.nextLine();
+                            }
+                        } while (true);
+                        switch (choice) {
+                            case 1:
+                                System.out.print("Enter Manager's name: ");
+                                String name = scanner.next();
+                                System.out.print("Enter Manager's employee ID: ");
+                                int employeeId = scanner.nextInt();
+                                System.out.print("Enter Manager's fixed salary: ");
+                                double fixedSalary = scanner.nextDouble();
+                                Manager manager = new Manager(name, employeeId, fixedSalary);
+                                employees.add(manager);
+                                System.out.println("Manager added successfully.");
+                                break;
+                            case 2:
+                                System.out.print("Enter Crew Member's name: ");
+                                String name1 = scanner.next();
+                                System.out.print("Enter Crew Member's employee ID: ");
+                                int employeeId1 = scanner.nextInt();
+                                System.out.print("Enter Crew Member's hourly pay: ");
+                                double hourlyPay = scanner.nextDouble();
+                                CrewMember crewMember = new CrewMember(name1, employeeId1, hourlyPay);
+                                employees.add(crewMember);
+                                System.out.println("Crew Member added successfully.");
+                                break;
+                            case 3:
+                                System.out.println("List of Employees:");
+                                    for (Employee employee : employees) {
+                                        System.out.println("Name: " + employee.getName());
+                                        System.out.println("Employee ID: " + employee.getEmployeeId());
+                                        System.out.println("Employee ID: " + employee.getEmployeeId());
+                                        System.out.println("Role: " + employee.getClass().getSimpleName());
+                                    }
+                                break;
+                            case 4:
+                                System.out.print("Enter Employee ID: ");
+                                int employeeId2 = scanner.nextInt();
+
+                                for (Employee employee : employees) {
+                                    if (employee.getEmployeeId() == employeeId2) {
+                                        System.out.println("Salary for Employee ID " + employeeId2 + ": " + employee.calculateSalary());
+                                    }
+                                }
+                                break;
+                            case 5:
+                                System.out.println("Returning to the main menu.");
+                                break;
+                            default:
+                                System.out.println("Invalid choice. Please try again.");
+                        }
+                    } while (choice != 5);
+                    break;
 
                     case 6: // Menu Management
                         
