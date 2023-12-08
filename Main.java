@@ -162,7 +162,11 @@ public class Main {
                             }
                         } while (true);
                         switch (choice) {
-                            
+                            case 1:
+                            case 2:
+                            case 3:
+                            case 4:
+                            case 5:
                         }
                     } while (choice != 5);
                     break;
