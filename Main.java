@@ -185,6 +185,14 @@ public class Main {
                                 System.out.println("Crew Member added successfully.");
                                 break;
                             case 3:
+                                System.out.println("List of Employees:");
+                                    for (Employee employee : employees) {
+                                        System.out.println("Name: " + employee.getName());
+                                        System.out.println("Employee ID: " + employee.getEmployeeId());
+                                        System.out.println("Employee ID: " + employee.getEmployeeId());
+                                        System.out.println("Role: " + employee.getClass().getSimpleName());
+                                    }
+                                break;
                             case 4:
                             case 5:
                         }
