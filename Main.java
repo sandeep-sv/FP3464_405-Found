@@ -194,6 +194,15 @@ public class Main {
                                     }
                                 break;
                             case 4:
+                                System.out.print("Enter Employee ID: ");
+                                int employeeId2 = scanner.nextInt();
+
+                                for (Employee employee : employees) {
+                                    if (employee.getEmployeeId() == employeeId2) {
+                                        System.out.println("Salary for Employee ID " + employeeId2 + ": " + employee.calculateSalary());
+                                    }
+                                }
+                                break;
                             case 5:
                         }
                     } while (choice != 5);
