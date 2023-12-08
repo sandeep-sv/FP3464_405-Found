@@ -172,8 +172,18 @@ public class Main {
                                 Manager manager = new Manager(name, employeeId, fixedSalary);
                                 employees.add(manager);
                                 System.out.println("Manager added successfully.");
-                            break;
+                                break;
                             case 2:
+                                System.out.print("Enter Crew Member's name: ");
+                                String name1 = scanner.next();
+                                System.out.print("Enter Crew Member's employee ID: ");
+                                int employeeId1 = scanner.nextInt();
+                                System.out.print("Enter Crew Member's hourly pay: ");
+                                double hourlyPay = scanner.nextDouble();
+                                CrewMember crewMember = new CrewMember(name1, employeeId1, hourlyPay);
+                                employees.add(crewMember);
+                                System.out.println("Crew Member added successfully.");
+                                break;
                             case 3:
                             case 4:
                             case 5:
