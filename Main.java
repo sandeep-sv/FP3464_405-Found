@@ -204,6 +204,10 @@ public class Main {
                                 }
                                 break;
                             case 5:
+                                System.out.println("Returning to the main menu.");
+                                break;
+                            default:
+                                System.out.println("Invalid choice. Please try again.");
                         }
                     } while (choice != 5);
                     break;
