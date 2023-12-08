@@ -163,6 +163,16 @@ public class Main {
                         } while (true);
                         switch (choice) {
                             case 1:
+                                System.out.print("Enter Manager's name: ");
+                                String name = scanner.next();
+                                System.out.print("Enter Manager's employee ID: ");
+                                int employeeId = scanner.nextInt();
+                                System.out.print("Enter Manager's fixed salary: ");
+                                double fixedSalary = scanner.nextDouble();
+                                Manager manager = new Manager(name, employeeId, fixedSalary);
+                                employees.add(manager);
+                                System.out.println("Manager added successfully.");
+                            break;
                             case 2:
                             case 3:
                             case 4:
