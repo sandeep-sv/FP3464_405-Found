@@ -141,6 +141,9 @@ public class Main {
                                 Receipt receipt1 = orderHistory.get(i);
                                 System.out.println("Receipt " + (i + 1) + ":");
                                 System.out.println("************************");
+                                for (OrderItem item : receipt1.getOrderItems()) {
+                                    System.out.println(item.getQuantity() + " - " + item.getMenuItem().getItemName() + " - $" + item.getItemTotal());
+                                }
                             }
                         }
                         
