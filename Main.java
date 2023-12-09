@@ -279,15 +279,28 @@ public class Main {
                                 System.out.println(entry.getKey() + ": " + entry.getValue() + " items");
                             }
 
+                              // Finding most selling and least selling item
 
-
-
-
-
-
-
-
-
+                              int maxQuantity = Integer.MIN_VALUE;
+                              int minQuantity = Integer.MAX_VALUE;
+                              String mostSoldItem = "";
+                              String leastSoldItem = "";
+  
+                              for (Map.Entry<String, Integer> entry : itemSales.entrySet()) {
+                                  if (entry.getValue() > maxQuantity) {
+                                      maxQuantity = entry.getValue();
+                                      mostSoldItem = entry.getKey();
+                                  }
+                                  if (entry.getValue() < minQuantity) {
+                                      minQuantity = entry.getValue();
+                                      leastSoldItem = entry.getKey();
+  
+                                  }
+  
+                              }
+  
+                              System.out.println("Most selling item: " + mostSoldItem + " (" + maxQuantity + " items)");
+                              System.out.println("Least selling item: " + leastSoldItem + " (" + minQuantity + " item)" );
 
                         }
 
