@@ -133,6 +133,9 @@ public class Main {
                         }
                         break;
                     case 2: // Order History
+                        if (orderHistory.isEmpty()) {
+                            System.out.println("Order history is empty.");
+                        }
                         
                         break;
 
