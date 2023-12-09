@@ -144,10 +144,12 @@ public class Main {
                                 for (OrderItem item : receipt1.getOrderItems()) { 
                                     System.out.println(item.getQuantity() + " - " + item.getMenuItem().getItemName() + " - $" + item.getItemTotal());
                                 }
-                                System.out.println(receipt1.getTotal());
-                                System.out.println(receipt1.getCustomerAmount());
-                                System.out.println(receipt1.getChange()); 
-                                
+                                System.out.println();
+                                System.out.println("Total: $" + receipt1.getTotal());
+                                System.out.println("Customer Amount: " + receipt1.getCustomerAmount());
+                                System.out.println("Change Amount: " + receipt1.getChange()); 
+                                System.out.println("************************");
+                                System.out.println();
                             }
                         }
                         
