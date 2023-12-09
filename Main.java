@@ -258,6 +258,30 @@ public class Main {
                             System.out.println("Item-wise Sales");
                             System.out.println("----------------------");
 
+                            HashMap<String, Integer> itemSales = new HashMap<>();
+
+                            for(Receipt receipt : orderHistory) {
+                                for(OrderItem item : receipt.getOrderItems()) {
+                                    String itemName = item.getMenuItem().getItemName();
+                                    int quantity = item.getQuantity();
+
+                                    // Update item-wise sales
+                                    if (itemSales.containsKey(itemName)) {
+                                        itemSales.put(itemName, itemSales.get(itemName) + quantity);
+                                    } else {
+                                        itemSales.put(itemName, quantity);
+                                    }
+                                }
+                            }
+
+                            
+
+
+
+
+
+
+
 
 
                         }
