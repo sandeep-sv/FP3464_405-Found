@@ -274,7 +274,12 @@ public class Main {
                                 }
                             }
 
-                            
+                            // Display item-wise sales
+                              for(Map.Entry<String, Integer> entry : itemSales.entrySet()) {
+                                System.out.println(entry.getKey() + ": " + entry.getValue() + " items");
+                            }
+
+
 
 
 
