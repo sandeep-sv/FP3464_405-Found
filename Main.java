@@ -133,6 +133,25 @@ public class Main {
                         }
                         break;
                     case 2: // Order History
+                        if (orderHistory.isEmpty()) {
+                            System.out.println("Order history is empty.");
+                        } else {
+                            System.out.println("order history:" + orderHistory.size());
+                            for (int i = 0; i < orderHistory.size(); i++) {
+                                Receipt receipt1 = orderHistory.get(i);
+                                System.out.println("Receipt " + (i + 1) + ":");
+                                System.out.println("************************");
+                                for (OrderItem item : receipt1.getOrderItems()) { 
+                                    System.out.println(item.getQuantity() + " - " + item.getMenuItem().getItemName() + " - $" + item.getItemTotal());
+                                }
+                                System.out.println();
+                                System.out.println("Total: $" + receipt1.getTotal());
+                                System.out.println("Customer Amount: " + receipt1.getCustomerAmount());
+                                System.out.println("Change Amount: " + receipt1.getChange()); 
+                                System.out.println("************************");
+                                System.out.println();
+                            }
+                        }
                         
                         break;
 
@@ -215,7 +234,76 @@ public class Main {
                     case 6: // Menu Management
                         
                         break;
-                    case 7: // Sale Report
+                    case 7:
+                        if (orderHistory.isEmpty()) {
+                        System.out.println("No sales have been made yet. ");
+                        } else {
+                            System.out.println("Sales Report:");
+                            System.out.println(" ---------------------------- ");
+
+                            // Total sales and number of orders
+                            double totalSales = 0;
+                            int totalOrders = orderHistory.size();
+
+                            for (Receipt receipt : orderHistory) {
+                                totalSales += receipt.getTotal();
+                            }
+
+                            System.out.println("Total number of orders: " + totalOrders);
+                            System.out.println("Total Sales: " + totalSales);
+                            System.out.println("Average sale per order: $" + (totalSales/totalOrders));
+
+                            // Item-wise Sales
+
+                            System.out.println("Item-wise Sales");
+                            System.out.println("----------------------");
+
+                            HashMap<String, Integer> itemSales = new HashMap<>();
+
+                            for(Receipt receipt : orderHistory) {
+                                for(OrderItem item : receipt.getOrderItems()) {
+                                    String itemName = item.getMenuItem().getItemName();
+                                    int quantity = item.getQuantity();
+
+                                    // Update item-wise sales
+                                    if (itemSales.containsKey(itemName)) {
+                                        itemSales.put(itemName, itemSales.get(itemName) + quantity);
+                                    } else {
+                                        itemSales.put(itemName, quantity);
+                                    }
+                                }
+                            }
+
+                            // Display item-wise sales
+                              for(Map.Entry<String, Integer> entry : itemSales.entrySet()) {
+                                System.out.println(entry.getKey() + ": " + entry.getValue() + " items");
+                            }
+
+                              // Finding most selling and least selling item
+
+                              int maxQuantity = Integer.MIN_VALUE;
+                              int minQuantity = Integer.MAX_VALUE;
+                              String mostSoldItem = "";
+                              String leastSoldItem = "";
+  
+                              for (Map.Entry<String, Integer> entry : itemSales.entrySet()) {
+                                  if (entry.getValue() > maxQuantity) {
+                                      maxQuantity = entry.getValue();
+                                      mostSoldItem = entry.getKey();
+                                  }
+                                  if (entry.getValue() < minQuantity) {
+                                      minQuantity = entry.getValue();
+                                      leastSoldItem = entry.getKey();
+  
+                                  }
+  
+                              }
+  
+                              System.out.println("Most selling item: " + mostSoldItem + " (" + maxQuantity + " items)");
+                              System.out.println("Least selling item: " + leastSoldItem + " (" + minQuantity + " item)" );
+
+                        }
+
                         
                         break;
 
