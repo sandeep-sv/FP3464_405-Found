@@ -234,8 +234,11 @@ public class Main {
                     case 6: // Menu Management
                         
                         break;
-                    case 7: // Sale Report
-                    // Samrat
+                    case 7:
+                        if (orderHistory.isEmpty()) {
+                        System.out.println("No sales have been made yet. ");
+                        } 
+
                         
                         break;
 
