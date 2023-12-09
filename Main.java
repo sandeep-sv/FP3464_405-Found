@@ -237,7 +237,19 @@ public class Main {
                     case 7:
                         if (orderHistory.isEmpty()) {
                         System.out.println("No sales have been made yet. ");
-                        } 
+                        } else {
+                            System.out.println("Sales Report:");
+                            System.out.println(" ---------------------------- ");
+
+                            // Total sales and number of orders
+                            double totalSales = 0;
+                            int totalOrders = orderHistory.size();
+
+                            for (Receipt receipt : orderHistory) {
+                                totalSales += receipt.getTotal();
+                            }
+
+                        }
 
                         
                         break;
