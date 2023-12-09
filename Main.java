@@ -135,6 +135,12 @@ public class Main {
                     case 2: // Order History
                         if (orderHistory.isEmpty()) {
                             System.out.println("Order history is empty.");
+                        } else {
+                            System.out.println("order history:" + orderHistory.size());
+                            for (int i = 0; i < orderHistory.size(); i++) {
+                                Receipt receipt1 = orderHistory.get(i);
+                            
+                            }
                         }
                         
                         break;
