@@ -139,7 +139,8 @@ public class Main {
                             System.out.println("order history:" + orderHistory.size());
                             for (int i = 0; i < orderHistory.size(); i++) {
                                 Receipt receipt1 = orderHistory.get(i);
-                            
+                                System.out.println("Receipt " + (i + 1) + ":");
+                                System.out.println("************************");
                             }
                         }
                         
