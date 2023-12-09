@@ -249,6 +249,17 @@ public class Main {
                                 totalSales += receipt.getTotal();
                             }
 
+                            System.out.println("Total number of orders: " + totalOrders);
+                            System.out.println("Total Sales: " + totalSales);
+                            System.out.println("Average sale per order: $" + (totalSales/totalOrders));
+
+                            // Item-wise Sales
+
+                            System.out.println("Item-wise Sales");
+                            System.out.println("----------------------");
+
+
+
                         }
 
                         
