@@ -255,6 +255,10 @@ public class Main {
                             {
                                 case 1:
                                     System.out.println("**** Menu *****");
+                                    for (int i = 0; i < menu.size(); i++) {
+                                        MenuItem m = menu.get(i);
+                                        System.out.println(i + 1 + "-" + m.getItemName());
+                                    }
                                     break;
                                 case 2:
                                     System.out.println("Item Added Case");
