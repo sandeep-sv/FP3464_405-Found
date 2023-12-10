@@ -242,11 +242,14 @@ public class Main {
                             System.out.println("4. View Salary by Employee ID");
                             System.out.println("5. Back to Main Menu");
                             do {
-                                System.out.print("Enter your choice: ");
-                                choice = scanner.nextInt();
-                                System.out.println(choice);
-                                break;
-                                
+                                try {
+                                    System.out.print("Enter your choice: ");
+                                    choice = scanner.nextInt();
+                                    break;
+                                } catch (Exception e) {
+                                    System.out.println("Invalid input. Please Enter An Integer");
+                                    scanner.nextLine();
+                                }
                             } while (true);
 
                         }while (choice != 5);
