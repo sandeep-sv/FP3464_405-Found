@@ -272,7 +272,16 @@ public class Main {
                                     System.out.println("New Item Added Successfully.");
                                     break;
                                 case 3:
-                                    System.out.println("Item Removed Case");
+                                    int inputVariable;
+                                    System.out.println("**** Menu *****");
+                                    for (int i = 0; i < menu.size(); i++) {
+                                        MenuItem m = menu.get(i);
+                                        System.out.println(i + 1 + "-" + m.getItemName() + " - " + m.getPrice());
+                                    }
+                                    System.out.print("Enter Item Number You Want To Remove: ");
+                                    inputVariable = scanner.nextInt();
+                                    menu.remove(inputVariable - 1);
+                                    System.out.println("Item Removed Successfully");
                                     break;
                                 case 4:
                                     System.out.println("Price Update Case");
