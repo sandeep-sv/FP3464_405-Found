@@ -284,7 +284,14 @@ public class Main {
                                     System.out.println("Item Removed Successfully");
                                     break;
                                 case 4:
-                                    System.out.println("Price Update Case");
+                                    System.out.println("**** Menu *****");
+                                    for (int i = 0; i < menu.size(); i++) {
+                                        MenuItem m = menu.get(i);
+                                        System.out.println(i + 1 + "-" + m.getItemName() + " - " + m.getPrice());
+                                    }
+                                    System.out.print("Enter Item Number You Want To Update Price: ");
+                                    in1 = scanner.nextInt();
+                                    System.out.print(in1);
                                     break;
                                 default:
                                     System.out.println("Please Enter Valid Option!!");
