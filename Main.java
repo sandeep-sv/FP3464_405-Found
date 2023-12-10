@@ -9,7 +9,7 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         ArrayList<MenuItem> menu = new ArrayList<>();
         ArrayList<Receipt> orderHistory = new ArrayList<>();
-        //ArrayList<Employee> employees = new ArrayList<>();
+        ArrayList<Employee> employees = new ArrayList<>();
         ArrayList<Integer> employeeCodes = new ArrayList<>();
         ArrayList<Date> clockInTimes = new ArrayList<>();
         SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
@@ -48,7 +48,7 @@ public class Main {
                 } while (true);
 
             switch (option) {
-                    case 1: // Add to Order & Checkout
+                    case 1: // Add to Order & Checkout - by sandeep
                         ArrayList<OrderItem> presentOrder = new ArrayList<>();
                         while (true) {
                             System.out.println("Menu:");
@@ -132,7 +132,7 @@ public class Main {
                             }
                         }
                         break;
-                    case 2: // Order History
+                    case 2: // Order History - by samrat
                         if (orderHistory.isEmpty()) {
                             System.out.println("Order history is empty.");
                         } else {
@@ -155,13 +155,79 @@ public class Main {
                         
                         break;
 
-                    case 3: // clock in
+                    case 3: // clock in - by sandeep
+                        System.out.println("clock in");
+                        int clockinId;
+                        boolean isvalidId = false;
+                        do {
+                            try {
+                                System.out.println("Enter employee Id:");
+                                clockinId = scanner.nextInt();
+                                break;
+                            } catch (Exception e) {
+                                System.out.println("Invalid input. Please Enter 4 Digit Integer Code");
+                                scanner.nextLine();
+                            }
+                        } while (true);
+                        for (Employee employee : employees) {
+                            if (employee.getEmployeeId() == clockinId) {
+                                isvalidId = true;
+                            }
+                        }
+                        if (isvalidId) {
+                            if (employeeCodes.contains(clockinId)) {
+                                System.out.println("Employee already clocked in..");
+                            } else {
+                                employeeCodes.add(clockinId);
+                                clockInTimes.add(new Date());
+                                System.out.println("Clocked in at " + dateFormat.format(new Date()));
+                            }
+                        } else {
+                            System.out.println("No employee with code " + clockinId);
+                        }
+                        break;
                         
                         break;
-                    case 4: // clock out
-                        
+                    case 4: // clock out - by sandeep
+                        System.out.println("clock out");
+                        int clockoutId;
+                        do {
+                            try {
+                                System.out.println("Enter employee Id:");
+                                clockoutId = scanner.nextInt();
+                                break;
+                            } catch (Exception e) {
+                                System.out.println("Invalid input. Please Enter 4 Digit Integer Code");
+                                scanner.nextLine();
+                            }
+                        } while (true);
+                        int index = employeeCodes.indexOf(clockoutId);
+                        if (index >= 0) {
+                            Date clockOutTime = new Date();
+                            System.out.println("Clocked out at " + dateFormat.format(clockOutTime));
+                            employeeCodes.remove(index);
+                            Date clockInTime = clockInTimes.get(index);
+                            double workTimeMillis = clockOutTime.getTime() - clockInTime.getTime();
+                            double hours = workTimeMillis / 3600000;
+                            System.out.println("Worked for " + hours + " hours");
+                            for (Employee employee : employees) {
+                                if (employee.getEmployeeId() == clockoutId) {
+                                    if (employee.getClass().getSimpleName().equals("Manager")) {
+                                        Manager m = (Manager) employee;
+                                        m.setDaysWorked();
+                                    } else {
+                                        CrewMember c = (CrewMember) employee;
+                                        c.setHoursWorked(hours);
+                                    }
+                                    break;
+                                }
+                            }
+                        } else {
+                            System.out.println("You are not clocked in..");
+                        }
                         break;
-                    case 5: // Employee Management
+                        
+                    case 5: // Employee Management - by rithvik
                     int choice;
                     do {
                         System.out.println("Employee Management Menu:");
@@ -231,7 +297,7 @@ public class Main {
                     } while (choice != 5);
                     break;
 
-                    case 6: // Menu Management
+                    case 6: // Menu Management - by pavan
                     //my commit check
                         int menuOption;
                         do{
@@ -308,7 +374,7 @@ public class Main {
                         }while (choice != 5);
                         
                         break;
-                    case 7:
+                    case 7: // sale report - by samrat
                         if (orderHistory.isEmpty()) {
                         System.out.println("No sales have been made yet. ");
                         } else {
