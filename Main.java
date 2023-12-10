@@ -1,7 +1,5 @@
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.Scanner;
+import java.util.*;
 
 
 public class Main {
@@ -187,7 +185,6 @@ public class Main {
                         }
                         break;
                         
-                        break;
                     case 4: // clock out - by sandeep
                         System.out.println("clock out");
                         int clockoutId;
@@ -371,7 +368,7 @@ public class Main {
                                     break;
                             }
 
-                        }while (choice != 5);
+                        }while (menuOption != 5);
                         
                         break;
                     case 7: // sale report - by samrat
