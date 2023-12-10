@@ -240,7 +240,14 @@ public class Main {
                             System.out.println("2. Add Crew Member");
                             System.out.println("3. View Employees");
                             System.out.println("4. View Salary by Employee ID");
-                            System.out.println("5. Back");
+                            System.out.println("5. Back to Main Menu");
+                            do {
+                                System.out.print("Enter your choice: ");
+                                choice = scanner.nextInt();
+                                System.out.println(choice);
+                                break;
+                                
+                            } while (true);
 
                         }while (choice != 5);
                         
