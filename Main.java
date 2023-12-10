@@ -251,6 +251,24 @@ public class Main {
                                     scanner.nextLine();
                                 }
                             } while (true);
+                            switch (menuOption) 
+                            {
+                                case 1:
+                                    System.out.println("**** Menu *****");
+                                    break;
+                                case 2:
+                                    System.out.println("Item Added Case");
+                                    break;
+                                case 3:
+                                    System.out.println("Item Removed Case");
+                                    break;
+                                case 4:
+                                    System.out.println("Price Update Case");
+                                    break;
+                                default:
+                                    System.out.println("Please Enter Valid Option!!");
+                                    break;
+                            }
 
                         }while (choice != 5);
                         
