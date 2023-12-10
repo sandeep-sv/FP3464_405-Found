@@ -257,7 +257,7 @@ public class Main {
                                     System.out.println("**** Menu *****");
                                     for (int i = 0; i < menu.size(); i++) {
                                         MenuItem m = menu.get(i);
-                                        System.out.println(i + 1 + "-" + m.getItemName());
+                                        System.out.println(i + 1 + "-" + m.getItemName() + " - " + m.getPrice());
                                     }
                                     break;
                                 case 2:
