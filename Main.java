@@ -233,6 +233,16 @@ public class Main {
 
                     case 6: // Menu Management
                     //my commit check
+                        int choice;
+                        do{
+                            System.out.println("Employee Management Menu:");
+                            System.out.println("1. Add Manager");
+                            System.out.println("2. Add Crew Member");
+                            System.out.println("3. View Employees");
+                            System.out.println("4. View Salary by Employee ID");
+                            System.out.println("5. Back");
+
+                        }while (choice != 5);
                         
                         break;
                     case 7:
