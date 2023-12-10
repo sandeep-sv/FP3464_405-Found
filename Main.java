@@ -233,18 +233,18 @@ public class Main {
 
                     case 6: // Menu Management
                     //my commit check
-                        int choice;
+                        int menuOption;
                         do{
-                            System.out.println("Employee Management Menu:");
-                            System.out.println("1. Add Manager");
-                            System.out.println("2. Add Crew Member");
-                            System.out.println("3. View Employees");
-                            System.out.println("4. View Salary by Employee ID");
+                            System.out.println("Menu Management:");
+                            System.out.println("1. View Menu");
+                            System.out.println("2. Add Item");
+                            System.out.println("3. Remove Item");
+                            System.out.println("4. Update Price");
                             System.out.println("5. Back to Main Menu");
                             do {
                                 try {
                                     System.out.print("Enter your choice: ");
-                                    choice = scanner.nextInt();
+                                    menuOption = scanner.nextInt();
                                     break;
                                 } catch (Exception e) {
                                     System.out.println("Invalid input. Please Enter An Integer");
