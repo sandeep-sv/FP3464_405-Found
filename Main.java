@@ -292,7 +292,13 @@ public class Main {
                                     }
                                     System.out.print("Enter Item Number You Want To Update Price: ");
                                     in1 = scanner.nextInt();
-                                    System.out.print(in1);
+                                    MenuItem mi = menu.get(in1 - 1);
+                                    double newPrice;
+                                    System.out.println("Enter The New Price:");
+                                    newPrice = scanner.nextDouble();
+                                    mi.setPrice(newPrice);
+                                    menu.set(in1 - 1, mi);
+                                    System.out.println("Price Updated Successfully.");
                                     break;
                                 default:
                                     System.out.println("Please Enter Valid Option!!");
