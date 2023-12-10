@@ -232,6 +232,80 @@ public class Main {
                     break;
 
                     case 6: // Menu Management
+                    //my commit check
+                        int menuOption;
+                        do{
+                            System.out.println("Menu Management:");
+                            System.out.println("1. View Menu");
+                            System.out.println("2. Add Item");
+                            System.out.println("3. Remove Item");
+                            System.out.println("4. Update Price");
+                            System.out.println("5. Back to Main Menu");
+                            do {
+                                try {
+                                    System.out.print("Enter your choice: ");
+                                    menuOption = scanner.nextInt();
+                                    break;
+                                } catch (Exception e) {
+                                    System.out.println("Invalid input. Please Enter An Integer");
+                                    scanner.nextLine();
+                                }
+                            } while (true);
+                            switch (menuOption) 
+                            {
+                                case 1:
+                                    System.out.println("**** Menu *****");
+                                    for (int i = 0; i < menu.size(); i++) {
+                                        MenuItem m = menu.get(i);
+                                        System.out.println(i + 1 + "-" + m.getItemName() + " - " + m.getPrice());
+                                    }
+                                    break;
+                                case 2:
+                                    String item;
+                                    double price;
+                                    System.out.println("Enter Item Name:");
+                                    item = scanner.next();
+                                    System.out.println("Enter Item Price: ");
+                                    price = scanner.nextDouble();
+                                    MenuItem m1 = new MenuItem(item, price);
+                                    menu.add(m1);
+                                    System.out.println("New Item Added Successfully.");
+                                    break;
+                                case 3:
+                                    int inputVariable;
+                                    System.out.println("**** Menu *****");
+                                    for (int i = 0; i < menu.size(); i++) {
+                                        MenuItem m = menu.get(i);
+                                        System.out.println(i + 1 + "-" + m.getItemName() + " - " + m.getPrice());
+                                    }
+                                    System.out.print("Enter Item Number You Want To Remove: ");
+                                    inputVariable = scanner.nextInt();
+                                    menu.remove(inputVariable - 1);
+                                    System.out.println("Item Removed Successfully");
+                                    break;
+                                case 4:
+                                    int in1;
+                                    System.out.println("**** Menu *****");
+                                    for (int i = 0; i < menu.size(); i++) {
+                                        MenuItem m = menu.get(i);
+                                        System.out.println(i + 1 + "-" + m.getItemName() + " - " + m.getPrice());
+                                    }
+                                    System.out.print("Enter Item Number You Want To Update Price: ");
+                                    in1 = scanner.nextInt();
+                                    MenuItem mi = menu.get(in1 - 1);
+                                    double newPrice;
+                                    System.out.println("Enter The New Price:");
+                                    newPrice = scanner.nextDouble();
+                                    mi.setPrice(newPrice);
+                                    menu.set(in1 - 1, mi);
+                                    System.out.println("Price Updated Successfully.");
+                                    break;
+                                default:
+                                    System.out.println("Please Enter Valid Option!!");
+                                    break;
+                            }
+
+                        }while (choice != 5);
                         
                         break;
                     case 7:
