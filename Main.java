@@ -261,7 +261,15 @@ public class Main {
                                     }
                                     break;
                                 case 2:
-                                    System.out.println("Item Added Case");
+                                    String item;
+                                    double price;
+                                    System.out.println("Enter Item Name:");
+                                    item = scanner.next();
+                                    System.out.println("Enter Item Price: ");
+                                    price = scanner.nextDouble();
+                                    MenuItem m1 = new MenuItem(item, price);
+                                    menu.add(m1);
+                                    System.out.println("New Item Added Successfully.");
                                     break;
                                 case 3:
                                     System.out.println("Item Removed Case");
