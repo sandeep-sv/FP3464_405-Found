@@ -284,6 +284,7 @@ public class Main {
                                     System.out.println("Item Removed Successfully");
                                     break;
                                 case 4:
+                                    int in1;
                                     System.out.println("**** Menu *****");
                                     for (int i = 0; i < menu.size(); i++) {
                                         MenuItem m = menu.get(i);
